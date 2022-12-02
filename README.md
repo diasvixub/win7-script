@@ -13,7 +13,7 @@
 
 ## Архив со всеми файлами
 
-[installer.7z]() - если ссылка не работает, оставьте `Issues` или пишите в [ВК](https://vk.com/diasvixub)
+[installer.7z](https://disk.yandex.ru/d/nmyzzGpcMHOIwA) - если ссылка не работает, оставьте `Issues` или пишите в [ВК](https://vk.com/diasvixub)
 
 ## Скрипт для ПК
 
