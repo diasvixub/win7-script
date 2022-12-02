@@ -152,12 +152,12 @@
 
 Скрипты запускать по порядку
 
-1. updates.cmd
-2. certs.cmd
-3. lib.cmd
-4. program.cmd
-5. boost.cmd
-6. clean.cmd
+1. `updates.cmd`
+2. `certs.cmd`
+3. `lib.cmd`
+4. `program.cmd`
+5. `boost.cmd`
+6. `clean.cmd`
 
 ### Что делают скрипты
 
