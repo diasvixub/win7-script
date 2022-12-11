@@ -1,46 +1,24 @@
-# Скрипт по автоматической настройке и установке всего необходимого для Windows 7
+# Win7 Script - release v1.0.0
 
-## Содержание
+## Program appearance
 
-- [Архив со всеми файлами](#Архив-со-всеми-файлами)
-- [Скрипт для ПК](#Скрипт-для-ПК)
-    - [main.cmd](#main.cmd)
-    - [setup.cmd](#setup.cmd)
-- [Скрипт для ноутбуков](#Скрипт-для-ноутбуков)
-- [Скрипты для ручной установки](#Скрипты-для-ручной-установки)
+![image](https://user-images.githubusercontent.com/113109541/206895443-611782be-89c3-4d25-866f-ab8b0a706277.png)
 
----
+**For the script to work correctly, you need to run it as an administrator**
 
-## Архив со всеми файлами
+## The script can
 
-[installer.7z](https://disk.yandex.ru/d/nmyzzGpcMHOIwA) - если ссылка не работает, оставьте `Issues` или пишите в [ВК](https://vk.com/diasvixub)
+1. Installing updates
+2. Updating root certificates
+3. Installing libraries
+4. Installing programs (_not included_)
+5. Windows optimization
+6. Clearing temporary files
 
-## Скрипт для ПК
-
-Запускаем файл `main.cmd`, который произведет подготовку необходимых файлов и откроет конечный каталог посе завершения.
-
-### main.cmd
-
-- Удаляет конечную папку, если она существует
-- Создает конечную папку `INST` в корне диска `C:\`
-- Копирует содержимое папки, в которой находится файл в конечную папку
-- Открывает конечную папку после завершения копирования
-
-После открытия папки, запускаем файл "setup.cmd" от имени администратора.
-
-После всех операций, ПК будет перезагружен.
-
-### setup.cmd
-
-- Установку обновлений
-- Обновление корневых сертификатов
-- Установка библиотек
-- Установка базового комлекта ПО
-- Оптимизацию Windows
-
-### Какие обновления включены
+## What updates are included (current for November 2022)
 
 - WindowsUpdateAgent
+- kb3102810
 - kb2533552
 - kb2545698
 - kb2547666
@@ -103,84 +81,46 @@
 - kb5018454
 - kb5020000
 
-### Какие библиотеки включены
+## Which libraries are included
 
-- DirectX
-- .NET Framework 3.5
-- Visual C++ Redistributable 2005-2022
+- [DirectX](https://www.microsoft.com/en-us/download/details.aspx?id=35)
+- [.NET Framework 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48)
+- [Visual C++ Redistributable 2005-2022](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 
-### Какие программы включены
+## How to use Program Installers
 
-- 7-Zip
-- Google Chrome
-- Firefox
-- Microsoft Office 2010
-- Notepad ++
-- GDevelop
-- GIMP
-- PyCharm Community
-- Visual Studio Code
-- VLC
-- Python 3.7
+To install programs using a script, you must first download the programs you need and move them to the "Programs" folder in the script directory and run the script.
 
-### Какие операции оптимизацие произведены
+## What is meant by optimization
 
-**Отключение ненужных компонентов Windows**
+**Disabling components**
 
-- Платформа гаджетов Windows
-- Игры
+- Windows Gadget Platform
+- Games
 
-**Отключение неиспользуемых служб**
+**Disabling services**
 
 - Windows Search
-- Архивация Windows
-- Служба ввода планшетного ПК
-- Служба поддержки Bluetooth
-- Служба шифрования дисков BitLocker
-- Центр обновления Windows
-- Теневое копирование тома
-- Смарт-карта
-- Защитник Windows
+- Windows Archiving
+- Tablet PC input service
+- Bluetooth Support Service
+- BitLocker Disk Encryption Service
+- Windows Update
+- Shadow copy of the volume
+- Smart card
+- Windows Defender
 
-**Настройка файла подкачки (4 ГБ)**
+**A 4 GB swap file will be configured**
 
-**Включение показа расширения файлов**
+**The display of file extensions will be enabled**
 
-**Очистка временных файлов**
+## Cleaning temporary files includes the following directories
 
 - `C:\Windows\SoftwareDistribution\Download\`
 - `C:\Windows\Prefetch\`
 - `%temp%`
-- `C:\INST`
 
-## Скрипт для ноутбуков
+## Removing the program
 
-Запускаем файл `main.cmd`, который произведет подготовку необходимых файлов и откроет конечный каталог посе завершения.
-
-После открытия папки, запускаем файл `setup_noUpd.cmd` от имени администратора.
-
-После всех операций, ПК будет перезагружен.
-
-`setup_noUpd.cmd` в отличии от `setup.cmd` имеет ту же функциональность, за исключением установки обновлений.
-
-## Скрипты для ручной установки
-
-Скрипты запускать по порядку
-
-1. `updates.cmd`
-2. `certs.cmd`
-3. `lib.cmd`
-4. `program.cmd`
-5. `boost.cmd`
-6. `clean.cmd`
-
-### Что делают скрипты
-
-Номер соответствует скрипту
-
-1. Устанавливает обновления
-2. Обновляет корневые сертификаты
-3. Устанавливает библиотеки
-4. Устанавливает программы
-5. Оптимизирует Windows (за исключением очистки временных файлов)
-6. очистка временных файлов
+After you install everything you need, you can run `uninstall.bat`.
+The script will delete all files and the program directory.
