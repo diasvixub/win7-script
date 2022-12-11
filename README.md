@@ -127,3 +127,7 @@ To install programs using a script, you must first download the programs you nee
 
 After you install everything you need, you can run `uninstall.bat`.
 The script will delete all files and the program directory.
+
+---
+
+You can also download a [custom version](https://github.com/diasvixub/win7_script/releases/tag/v1.0.1) of the script without updates and libraries.
