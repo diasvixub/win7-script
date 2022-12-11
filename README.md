@@ -4,7 +4,10 @@
 
 ![image](https://user-images.githubusercontent.com/113109541/206895443-611782be-89c3-4d25-866f-ab8b0a706277.png)
 
-**For the script to work correctly, you need to run it as an administrator**
+> For the script to work correctly, you need to run it as an administrator.
+
+> You may need to `api-ms-win-core-path-l1-1-0.dll` to use the script.
+> It can be installed from the `Api` folder in the program folder by running `install.bat` of the Administrator's name.
 
 ## The script can
 
