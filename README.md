@@ -1,4 +1,4 @@
-# Win7 Script - release v1.0.0
+# Win7 Script
 
 ## Program appearance
 
@@ -8,6 +8,9 @@
 
 > You may need to `api-ms-win-core-path-l1-1-0.dll` to use the script.
 > It can be installed from the `Api` folder in the program folder by running `install.bat` of the Administrator's name.
+
+> For the script to work correctly, it is necessary to have the following directories in the script folder:
+> `Libs`, `Programs`, `Updates`
 
 ## The script can
 
