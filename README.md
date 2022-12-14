@@ -23,6 +23,8 @@
 
 ## What updates are included (current for November 2022)
 
+> It is recommended to install updates in two passes (after the first installation, restart the device and start installing updates again)
+
 - WindowsUpdateAgent
 - kb3102810
 - kb2533552
