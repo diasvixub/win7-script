@@ -232,19 +232,18 @@ def boost(a, b):
         product()
         bar = IncrementalBar('Optimization', max=len(a)+len(b)+3)
         for i in range(0, len(a)):
-            run(['Dism', '/online', '/Disable-Feature', a[i], '/norestart'], shell=False, stdout=DEVNULL)
             bar.next()
-        run(['wmic', 'computersystem', 'set', 'AutomaticManagedPagefile=False'], shell=False, stdout=DEVNULL)
+            run(f'Dism /online /Disable-Feature {a[i]} /norestart', shell=False, stdout=DEVNULL)
+        run('wmic computersystem set AutomaticManagedPagefile=False', shell=False, stdout=DEVNULL)
         bar.next()
-        run(['wmic', 'pagefileset', 'where', 'name="C:\\pagefile.sys"' 'set', 'InitialSize=4096,MaximumSize=4096'],
+        run('wmic pagefileset where name="C:\\\\pagefile.sys" set InitialSize=4096,MaximumSize=4096',
             shell=False, stdout=DEVNULL)
         bar.next()
-        run(['reg', 'add', 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced', '/v',
-             'HideFileExt', '/t REG_DWORD', '/d', '00000000', '/f'], shell=False, stdout=DEVNULL)
+        run('reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced /v HideFileExt /t REG_DWORD /d 00000000 /f',
+            shell=False, stdout=DEVNULL)
         bar.next()
         for i in range(0, len(b)):
-            run(['sc', 'config', b[i], 'start=', 'disabled'], shell=False, stdout=DEVNULL)
-            run(['net', 'stop', b[i]], shell=False, stdout=DEVNULL)
+            run(f'sc config {b[i]} start= disabled', shell=False, stdout=DEVNULL)
             bar.next()
         bar.finish()
         sleep(1)
