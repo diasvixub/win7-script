@@ -1,1 +1,1 @@
-rmdir /s /q C:\INST
+rmdir /s /q %cd%
