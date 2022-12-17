@@ -1,11 +1,10 @@
-from os import system, chdir, mkdir, listdir
+from os import system, listdir
 from time import sleep
 from subprocess import run, DEVNULL
 import sys
 from progress.bar import IncrementalBar
 
-path = 'C:\\INST'
-p_name = '                                   WIN7-SCRIPT'
+p_name = 'WIN7-SCRIPT'.center(79)
 hr = '═══════════════════════════════════════════════════════════════════════════════'
 updates_list = listdir('Updates')
 libs_list = listdir('Libs')
@@ -19,65 +18,49 @@ sc_list = ['wuauserv', 'WSearch', 'SDRSVC', 'TabletInputService', 'bthserv', 'BD
 
 def main():
     system('title MENU')
-    try:
-        chdir(path)
-    except FileNotFoundError:
-        mkdir(path)
-        product()
-        copy()
-        system(f'start {path}\\setup')
+    product()
+    print('1 Installing Windows Updates')
+    print('2 Updating Root Certificates')
+    print('3 Installing Libraries')
+    print('4 Installing Programs')
+    print('5 Optimizing Windows')
+    print('6 Cleaning Temporary Files')
+    print('7 Get Help')
+    print('8 Restart Windows')
+    print('0 Exit the program')
+    print(hr)
+    operation = input('Operation number: ')
+    system('cls')
+    if operation == '1':
+        updates(updates_list)
+    elif operation == '2':
+        certs(certs_list)
+    elif operation == '3':
+        libs(libs_list)
+    elif operation == '4':
+        programs(programs_list)
+    elif operation == '5':
+        boost(dism_list, sc_list)
+    elif operation == '6':
+        clean()
+    elif operation == '7':
+        system('notepad readme.txt')
+        main()
+    elif operation == '8':
+        run(['shutdown', '/r', '/t', '5'], shell=False, stdout=DEVNULL)
+    elif operation == '0':
         sys.exit()
     else:
-        system('chcp 866')
         product()
-        print('1 Installing Windows Updates')
-        print('2 Updating Root Certificates')
-        print('3 Installing Libraries')
-        print('4 Installing Programs')
-        print('5 Optimizing Windows')
-        print('6 Cleaning Temporary Files')
-        print('7 Get Help')
-        print('8 Restart Windows')
-        print('0 Exit the program')
-        print(hr)
-        operation = input('Operation number: ')
-        system('cls')
-        if operation == '1':
-            updates(updates_list)
-        elif operation == '2':
-            certs(certs_list)
-        elif operation == '3':
-            libs(libs_list)
-        elif operation == '4':
-            programs(programs_list)
-        elif operation == '5':
-            boost(dism_list, sc_list)
-        elif operation == '6':
-            clean()
-        elif operation == '7':
-            system('notepad readme.txt')
-            main()
-        elif operation == '8':
-            run(['shutdown', '/r', '/t', '5'], shell=False, stdout=DEVNULL)
-        elif operation == '0':
-            sys.exit()
-        else:
-            product()
-            print('Invalid operation number entered')
-            sleep(1)
-            main()
+        print('Invalid operation number entered')
+        sleep(1)
+        main()
 
 
 def product():
     system('cls')
     print(p_name)
     print(hr)
-
-
-def copy():
-    system('title COPYING FILES...')
-    print('Copying files...')
-    run(['xcopy', '*', path, '/E', '/Y'], shell=False, stdout=DEVNULL)
 
 
 def updates(a):
